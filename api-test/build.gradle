@@ -1,0 +1,19 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    restAssuredVersion = '4.2.0'
+    testNgVersion = '7.1.0'
+    jacksonVersion = '2.10.2'
+}
+
+dependencies {
+    compile "io.rest-assured:rest-assured:$restAssuredVersion"
+    compile "org.testng:testng:$testNgVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+}
