@@ -10,10 +10,32 @@ ext {
     restAssuredVersion = '4.2.0'
     testNgVersion = '7.1.0'
     jacksonVersion = '2.10.2'
+    fakerVersion = '1.0.1'
 }
 
 dependencies {
     compile "io.rest-assured:rest-assured:$restAssuredVersion"
     compile "org.testng:testng:$testNgVersion"
     compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    compile "com.github.javafaker:javafaker:$fakerVersion"
+    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+    compile group: 'org.aeonbits.owner', name: 'owner', version: '1.0.10'
+}
+
+test {
+    useTestNG()
+
+    systemProperties System.getProperties()
+
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+
+    test.outputs.upToDateWhen {
+        false
+    }
 }
