@@ -8,7 +8,7 @@ repositories {
 
 ext {
     restAssuredVersion = '4.2.0'
-    testNgVersion = '7.1.0'
+    testNgVersion = '7.0.0'
     jacksonVersion = '2.10.2'
     fakerVersion = '1.0.1'
 }
@@ -22,6 +22,7 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     compile group: 'org.aeonbits.owner', name: 'owner', version: '1.0.10'
+    compile group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.13.1'
 }
 
 test {
@@ -37,5 +38,13 @@ test {
 
     test.outputs.upToDateWhen {
         false
+    }
+
+    allure {
+
+        version = '2.8.1'
+        aspectjweaver = 'true'
+        configuration = 'compile'
+        autoconfigure = true
     }
 }

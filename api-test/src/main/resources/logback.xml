@@ -3,9 +3,8 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <Pattern>
-                %d %-5level %msg%n
-            </Pattern>
+            <charset>utf-8</charset>
+            <Pattern>%d %-5level %msg%n</Pattern>
         </encoder>
 
     </appender>
