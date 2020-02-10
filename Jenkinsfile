@@ -13,4 +13,12 @@ node{
     stage("run api test"){
         sh "./gradlew test"
     }
+
+    allure([
+        includeProperties: false,
+        jdk: '',
+        properties: [],
+        reportBuildPolicy: 'ALWAYS',
+        results: [[path: 'api-test/allure-results']]
+         ])
 }
