@@ -1,3 +1,5 @@
 rootProject.name = 'training'
 include 'api-test'
+include 'ui-test'
+findProject(':ui-test')?.name = 'ui'
 

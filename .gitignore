@@ -4,4 +4,5 @@ build/
 out/
 *.ipr
 .allure/
-api-test/allure-results
+allure-results
+

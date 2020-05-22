@@ -1,3 +1,5 @@
+version 'unspecified'
+
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
@@ -14,6 +16,7 @@ ext {
 }
 
 dependencies {
+    compile project(":api-test")
     compile "io.rest-assured:rest-assured:$restAssuredVersion"
     compile "org.testng:testng:$testNgVersion"
     compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
@@ -23,27 +26,17 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     compile group: 'org.aeonbits.owner', name: 'owner', version: '1.0.10'
     compile group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.13.1'
+    compile group: 'com.codeborne', name: 'selenide', version: '4.14.2'
 }
 
-test {
-    useTestNG()
+allure {
+    version = '2.8.1'
+    aspectjweaver = 'true'
+    configuration = 'compile'
+    autoconfigure = true
 
-    systemProperties System.getProperties()
-
-    testLogging {
-        events "PASSED", "FAILED", "SKIPPED"
-        showStandardStreams = true
-        exceptionFormat = 'full'
-    }
-
-    test.outputs.upToDateWhen {
-        false
-    }
-
-    allure {
-        version = '2.8.1'
-        aspectjweaver = 'true'
-        configuration = 'compile'
-        autoconfigure = true
+    useTestNG {
+        version = '2.12.1'
     }
 }
+
