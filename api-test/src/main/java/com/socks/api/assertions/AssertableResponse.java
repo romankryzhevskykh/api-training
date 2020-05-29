@@ -3,6 +3,7 @@ package com.socks.api.assertions;
 import com.socks.api.conditions.Condition;
 import io.qameta.allure.Step;
 import io.restassured.http.Headers;
+import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,5 +26,11 @@ public class AssertableResponse {
 
     public Headers headers(){
         return response.getHeaders();
+    }
+
+    public String getHtmlValue() {
+        XmlPath htmlParser = response.body().htmlPath();
+        String csrfTokenPath = "**.find {it.@name =='CSRFToken'}.@value";
+        return htmlParser.get(csrfTokenPath);
     }
 }

@@ -44,17 +44,22 @@ public class UsersTest {
     }
 
     @Test
-    public void testCannotRegisterNewUserTwice() {
-        UserPayload user = new UserPayload()
-                .username(faker.name().username())
-                .email("test@mail.com")
-                .password("test123");
+    public void userCanGetCart(){
 
-        userApiService.registerUser(user)
-                .shouldHave(statusCode(200))
-                .shouldHave(bodyField("id", not((emptyString()))));
-
-        userApiService.registerUser(user)
-                .shouldHave(statusCode(500));
     }
+
+//    @Test
+//    public void testCannotRegisterNewUserTwice() {
+//        UserPayload user = new UserPayload()
+//                .username(faker.name().username())
+//                .email("test@mail.com")
+//                .password("test123");
+//
+//        userApiService.registerUser(user)
+//                .shouldHave(statusCode(200))
+//                .shouldHave(bodyField("id", not((emptyString()))));
+//
+//        userApiService.registerUser(user)
+//                .shouldHave(statusCode(500));
+//    }
 }

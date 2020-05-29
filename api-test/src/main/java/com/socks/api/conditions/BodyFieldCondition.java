@@ -15,6 +15,11 @@ public class BodyFieldCondition implements Condition {
         response.then().assertThat().body(jsonPath, matcher);
     }
 
+//    public void getCsrfToken(Response response) {
+//        response.body().htmlPath()
+//    }
+
+
     @Override
     public String toString() {
         return "body field [" + jsonPath + "] " + matcher;

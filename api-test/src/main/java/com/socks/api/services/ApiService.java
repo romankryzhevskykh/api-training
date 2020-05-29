@@ -19,6 +19,7 @@ public class ApiService {
     protected RequestSpecification setup() {
         return RestAssured
                 .given().contentType(ContentType.JSON)
+                .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                 .filters(getFilters());
     }
 

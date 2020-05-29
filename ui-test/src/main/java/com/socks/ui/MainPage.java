@@ -10,10 +10,4 @@ public class MainPage {
         return new MainPage();
     }
 
-    public void loginAs(String name, String password) {
-        $("#login > a").click();
-        $("#username-modal").setValue(name);
-        $("#password-modal").setValue(password);
-        $("#login-modal > div > div > div.modal-body > form > p > button").click();
-    }
 }
